@@ -1,4 +1,22 @@
+# Rust build artifacts
 /target
-/docker-compose.yml
+src-tauri/target
+
+# Node
+node_modules
+dist
+
+# Environment
 .env
+
+# OS files
 .DS_Store
+Thumbs.db
+
+# IDE
+.idea
+.vscode
+*.swp
+
+# Docker (optional)
+docker-compose.yml

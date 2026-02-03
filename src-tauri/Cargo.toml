@@ -1,0 +1,63 @@
+[package]
+name = "montlhy_bank_usage"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "montlhy_bank_usage_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+path = "src/lib.rs"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+# Tauri
+tauri = { version = "2", features = [] }
+tauri-plugin-shell = "2"
+# Database
+sqlx = { version = "0.8", features = [
+    "runtime-tokio",
+    "tls-native-tls",
+    "postgres",
+    "migrate",
+    "rust_decimal",
+    "chrono",
+    "uuid"
+] }
+
+# Async runtime
+tokio = { version = "1", features = ["full"] }
+
+# Error handling
+thiserror = "1.0"
+anyhow = "1.0"
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Types
+chrono = { version = "0.4", features = ["serde"] }
+rust_decimal = { version = "1.40", features = ["db-postgres", "serde"] }
+uuid = { version = "1.0", features = ["v4", "serde"] }
+
+# Environment & Config
+dotenvy = "0.15"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# OAuth
+oauth2 = { version = "4.4", features = ["reqwest"] }
+reqwest = { version = "0.11", features = ["json"] }
+
+# OAuth callback server
+warp = "0.3"
+
+# Secure token storage (system keyring)
+keyring = "3"
+
+# Open browser cross-platform
+open = "5"
